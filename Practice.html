@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+    <!---Title of the WebPage--->
+    <head>
+        <title>
+            SmallProjectCOP4331
+        </title>
+    </head>
+
+    <!---all the functions--->
+    <style>
+        h1 {text-align: center;}
+        h2 {text-align: center;}
+        p {text-align: center;} 
+
+        .img-container {
+          text-align: center;
+          display: block;
+
+        }
+
+        .borderexample {
+         text-align: center;
+         border-style:solid;
+         border-color: black;
+         height: fit-content;
+         width: fit-content;
+        }
+
+        .center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+    </style>
+
+    <!---Here starts the Body Part--->
+    <body style = "background-color: #1fb6dc;">
+
+        <!---Logo--->
+        <span class="img-container"> 
+            <img src="/Users/ridwan/Desktop/Contactello/Logo 2 - (Background removed) Looka-com.png" style="width:500px;height:200px;">
+        </span>
+
+        <h1 style="font-style: oblique;"> Making Contact Mangement Easier </h1>       
+        <p style="font-size: x-large; font-style:unset;"> Personal Contact Manager </p>
+        
+        <!---This is maybe to send the info to BackEnd--->
+        <div class="center">
+            <form action="/action_page.php">
+                <label for="fname">User ID:</label><br>
+                <input type="text" id="fname" name="fname" value=""><br>
+                <label for="lname">Password:</label><br>
+                <input type="text" id="lname" name="lname" value=""><br><br>
+            <input type="submit" value="Login">
+          </form>
+        </div>
+
+        <!---Redirect to Register Page--->
+        <p> Don't have an account? </p>
+        <div class="center">
+            <form method = "POST" action="something.php">
+            <input type="submit" value="Register">
+          </form>
+        </div>
+        
+        <!---Redirect Contact Us Page--->
+        <p style="text-align:center; font-variant: small-caps;" >Have Questions?</p>
+        <p style="text-align:center">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=contactello01@gmail.com" target="_blank">Contact Us</a>
+        </p>
+      
+    </body>
+    
+    </html>
