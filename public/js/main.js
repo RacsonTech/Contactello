@@ -33,7 +33,7 @@ jQuery.validator.addMethod('validPhone', function(val, elem) {
   return val.length == 0 || validatePhoneNumber(cleanPhoneNumber(val))
 }, "Please enter a valid phone number.")
 
-$(document).on('ready', function() {
+$(function() {
   contactForm.validate({
     rules: {
       name : {
