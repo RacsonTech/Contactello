@@ -1,5 +1,13 @@
 body{
-  padding-top: 80px; /* padding for navbar */
+  padding-top: 75px; /* padding for navbar */
   background-color: #3f51b5 !important;
+}
+
+.card-options-icon{
+  position: absolute;
+  font-size: 1.5rem;
+  margin-left: -1.6rem;
+  left: 100%;
+  top: 0;
 }
 
