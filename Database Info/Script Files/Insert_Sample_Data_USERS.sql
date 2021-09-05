@@ -1,0 +1,17 @@
+USE ContactDB;
+
+LOCK TABLES `Users` WRITE;
+
+INSERT INTO `Users` VALUES 
+	(1,'Julio','Will','JulioW',				'9fc9b458969f9babde3e0b0fd086b374c49acb03d1e4225a282a36264b2db08a','2008-10-18 20:52:47','1970-10-07 18:13:35'),
+	(2,'Cory','Blanda','CoryB',				'01c7b3372517a9662c59b1a413cb67407463f1064b6e00aee87593442cd80abb','1984-08-01 09:16:08','1982-10-05 06:58:23'),
+	(3,'Kareem','Mante','KareemM',			'2d75d351b17f0fadd1fe19fa478cf73238a9ab3a3c75009e465e2b0c3b057364','2017-05-21 11:28:26','1984-07-25 08:25:57'),
+	(4,'Cassandre','Friesen','CassandreF',	'0f455a50dbbb4fd84df3476eba8c5e8440d975f96fc79b9ef311200e35844e79','1970-02-28 22:29:01','2000-12-28 05:45:07'),
+	(5,'Norbert','Littel','NorbertL',		'312dd81fafeaf36cf6523249f9f24ecd020c19238462356727a6252fb2edb5e4','1980-12-19 17:19:14','2014-04-08 19:11:23'),
+	(6,'Joseph','Walker','JosephW',			'86cf1cbbdd3a08b23912287f0056276ebae5f91fe2af480fb2a8d4045b26be7d','1988-01-21 08:19:32','2021-03-08 03:05:21'),
+	(7,'Reid','Mosciski','ReidM',			'ea36a8e8b016b20812ff4886d8ac575252448e66a912b9f955b5ec30025040c5','2013-08-08 10:50:24','1996-01-28 14:02:44'),
+	(8,'Carlie','Rath','CarlieR',			'807d7139e75ac19eea4825dc0e14f3564ac3390205eb01ee6937d7c41bbb8fd5','1972-08-04 12:20:19','2012-06-25 20:03:20'),
+	(9,'Prudence','Waelchi','PrudenceW',	'f7f287f06ac607d4e5d5eaf83e95f074dd88924209a2b6d78583976c014d9a02','1993-10-26 18:01:11','1982-04-30 23:34:49'),
+	(10,'Edythe','Beahan','EdytheB',		'08fea0ef541c8700f84a605977f58e42078f52a127f1afb540e7b2be3c443eb3','1970-10-06 07:43:57','1978-11-09 22:04:23');
+
+UNLOCK TABLES;

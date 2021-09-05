@@ -1,0 +1,31 @@
+
+Database name: ContactDB
+
+Database Tables:
+	
+	USERS: Users
+	+------------------+-------------+------+-----+-------------------+-------------------+
+	| Field            | Type        | Null | Key | Default           | Extra             |
+	+------------------+-------------+------+-----+-------------------+-------------------+
+	| UserID           | int         | NO   | PRI | NULL              | auto_increment    |
+	| FirstName        | varchar(50) | NO   |     |                   |                   |
+	| LastName         | varchar(50) | NO   |     |                   |                   |
+	| Login            | varchar(50) | NO   |     |                   |                   |
+	| Password         | varchar(64) | NO   |     |                   |                   |
+	| DateCreated      | datetime    | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+	| DateLastLoggedIn | datetime    | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
+	+------------------+-------------+------+-----+-------------------+-------------------+
+
+
+	TABLE: Contacts
+	+-------------+-------------+------+-----+---------+----------------+
+	| Field       | Type        | Null | Key | Default | Extra          |
+	+-------------+-------------+------+-----+---------+----------------+
+	| ContactID   | int         | NO   | PRI | NULL    | auto_increment |
+	| UserID      | int         | NO   | MUL | 0       |                |
+	| FirstName   | varchar(50) | NO   |     |         |                |
+	| LastName    | varchar(50) | NO   |     |         |                |
+	| PhoneNumber | varchar(20) | NO   |     |         |                |
+	| Email       | varchar(50) | NO   |     |         |                |
+	+-------------+-------------+------+-----+---------+----------------+
+

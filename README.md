@@ -21,7 +21,7 @@
     <img src="images/logo2_looka_com.PNG" alt="Logo" width="409" height="138">
     <!-- <img src="images/logo1_adobe.PNG" alt="Logo" width="366" height="78"> -->
   </a>
-  <h3 align="center">www.contactello.live</h3>
+  <h3 align="center">www.contactello.com</h3>
   <p align="center">
     A basic online contact manager
     <br><br>
@@ -40,3 +40,4 @@
 ## Acknowledgements
 * [Shields.io](https://shields.io)
 * [Best-README-Template](https://github.com/othneildrew/Best-README-Template/blob/master/README.md)
+* [MySQL Workbench](https://www.mysql.com/products/workbench/)
