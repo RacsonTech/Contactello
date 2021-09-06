@@ -1,6 +1,18 @@
 var exampleModal = $('#contactModal')
 var contactForm = $('#contact-modal-form')
 
+function formToJson(form) {
+  let formArray = form.serializeArray()
+  let returnArray = {}
+  for (let i = 0; i < formArray.length; i++)
+      returnArray[formArray[i]['name']] = formArray[i]['value']
+  return returnArray
+}
+
+function formToJsonString(form) {
+  return JSON.stringify(formToJson(form))
+}
+
 exampleModal.on('show.bs.modal', function (event) {
   let button = event.relatedTarget
   // TODO: Load current contact values into modal

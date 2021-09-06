@@ -78,11 +78,11 @@
     
     <!---This is maybe to send the info to BackEnd--->
     <div class="container">
-      <form action="/Login.php" class="was-validated" method="POST"> <!---not sure about this-->
+      <form action="LAMPAPI/Login.php" class="was-validated" id="formId" method="POST"> <!---not sure about this-->
         <div class="mb-4">
         <div class="form-group">
           <label for="email"> User ID:</label>
-          <input type="email" class="form-control" id="email" placeholder="Enter email" name="email" required>
+          <input type="text" class="form-control" id="email" placeholder="Enter email" name="Login">
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback"> Please enter valid User ID</div>
         </div>
@@ -91,14 +91,14 @@
       <div class="mb-4">
         <div class="form-group">
           <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd" required>
+          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password">
           <div class="valid-feedback">Valid.</div>
           <div class="invalid-feedback"> Please enter valid Password </div>
         </div>
       </div>
 
       <div class="mb-3">
-        <button type="submit" class="button button2" style="color: black;" >
+        <button type="submit" id="submitButton" class="button button2" style="color: black;" >
           Log In
         </button>
       </form>
@@ -133,5 +133,13 @@
   </div>
   <script href= "public/js/bootstrap.bundle.min.js"></script>
   <script src="public/js/jquery-3.6.0.min.js"></script>
+  <script src="public/js/main.js"></script>
+  <script>
+    $('#formId').on('submit', function(e){
+      e.preventDefault();
+      console.log(convertFormToJson($(this)))
+    })
+    
+  </script>
   </body>
   </html>
