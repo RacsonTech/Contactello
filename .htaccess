@@ -1,0 +1,8 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+# Rewrite for Practice.php
+RewriteRule ^practice Practice.php [NC,L]
+# NC: makes the rule non case sensitive
+# L: makes this the last rule that this specific condition will match
+
