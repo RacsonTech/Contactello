@@ -6,15 +6,26 @@
 	{
 		returnWithError( $conn->connect_error );
 	}
-	else
+	else if( strlen($inData["FirstName"]) > 50 || strlen($inData["FirstName"]) < 1 || strlen($inData["LastName"]) > 50 || strlen($inData["LastName"]) < 1 
+			|| strlen($inData["Login"]) > 50 || strlen($inData["Login"]) < 1  ) 
+	{
+		echo "Invalid input： FirstName, LastName and Login should be within 1~50 characters";
+	} 
+	else if ( strlen($inData["Password"]) >32 || strlen($inData["Password"]) < 8 )
+	{
+		echo "Invalid input： Password should be within 8~32 characters";
+	}
+	else 
 	{
 		$stmt = $conn->prepare("INSERT into Users (FirstName,LastName,Login,Password) VALUES(?,?,?,?)");
 		$hashValue = HASH('sha256', $inData["Password"], false);
 		$stmt->bind_param("ssss",$inData["FirstName"],$inData["LastName"],$inData["Login"], $hashValue );
 		$stmt->execute();
+
+		returnWithError(mysqli_error($conn)); // mysql_error(resource $link_identifier = NULL): string // get the error message from database
+
 		$stmt->close();
 		$conn->close();
-		returnWithError('Duplicate Login account'); // mysql_error(resource $link_identifier = NULL): string
 	}
 
 	function getRequestInfo()

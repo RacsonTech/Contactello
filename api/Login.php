@@ -12,6 +12,14 @@
 	{
 		returnWithError( $conn->connect_error );
 	}
+	else if( strlen($inData["Login"]) > 50 || strlen($inData["Login"]) < 1  ) 
+	{
+	echo "Invalid input： Login should be within 1~50 characters";
+	} 
+	else if ( strlen($inData["Password"]) >32 || strlen($inData["Password"]) < 8 )
+	{
+	echo "Invalid input： Password should be within 8~32 characters";
+	}
 	else
 	{
 		$stmt = $conn->prepare("SELECT UserID,FirstName,LastName FROM Users WHERE Login=? AND Password =?");
