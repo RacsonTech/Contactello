@@ -1,6 +1,6 @@
 
 <?php
-
+	session_start();
 	$inData = getRequestInfo();
 
 	$UserID = 0;
@@ -15,19 +15,22 @@
 	else
 	{
 		$stmt = $conn->prepare("SELECT UserID,FirstName,LastName FROM Users WHERE Login=? AND Password =?");
-		$stmt->bind_param("ss", $inData["login"], $inData["password"]);
+		$stmt->bind_param("ss", $inData["Login"], HASH('sha256', $inData["Password"], false));
 		$stmt->execute();
 		$result = $stmt->get_result();
 
 		if( $row = $result->fetch_assoc()  )
-		{
+		{	
+			$_SESSION['UserID'] = $row['UserID'];
+			$_SESSION['FirstName'] = $row['FirstName'];
+			$_SESSION['LastName'] = $row['LastName'];
 			returnWithInfo( $row['FirstName'], $row['LastName'], $row['UserID'] );
 		}
 		else
 		{
 			returnWithError("No Records Found");
 		}
-
+			
 		$stmt->close();
 		$conn->close();
 	}
