@@ -1,5 +1,6 @@
-var exampleModal = $('#contactModal')
+var contactModal = $('#contactModal')
 var contactForm = $('#contact-modal-form')
+var modalType = "Add";
 
 function formToJson(form) {
   let formArray = form.serializeArray()
@@ -13,13 +14,60 @@ function formToJsonString(form) {
   return JSON.stringify(formToJson(form))
 }
 
-exampleModal.on('show.bs.modal', function (event) {
-  let button = event.relatedTarget
+contactModal.on('show.bs.modal', function (event) {
+  let button = $(event.relatedTarget).first()
+  modalType = button.data('type')
+  $('#contactModalLabel').text(modalType + ' Contact')
   // TODO: Load current contact values into modal
-  $('#modal-contact-name').val('');
-  $('#modal-contact-phone').val('');
-  $('#modal-contact-email').val('');
+  $('#modal-contact-firstname').val('')
+  $('#modal-contact-lastname').val('')
+  $('#modal-contact-phone').val('')
+  $('#modal-contact-email').val('')
 })
+
+contactForm.on('submit', function(event) {
+  event.preventDefault();
+  $.ajax({
+    url: 'LAMPAPI/Add.php',
+    type : "POST",
+    dataType : 'json',
+    contentType: 'application/json;charset=UTF-8',
+    data : formToJsonString($(this)),
+    success : function(result) {
+      console.log(result)
+      // location.reload()
+    }
+  })
+})
+
+$(function() {
+  $.get("LAMPAPI/SearchContact.php", function(data) {
+    let contactContainer = document.querySelector('#contactContainer');
+    let row = createRow();
+    contactContainer.appendChild(row)
+    for(let i = 1; i <= data.results.length; i++){
+      let contact = data.results[i-1]; //subtract 1 since we are starting at 1 for modulo (at bottom)
+      let contactCard = document.querySelector('#contactTemplate').cloneNode(true);
+      let name = contactCard.querySelector('.card-title')
+      name.innerText = contact.FirstName + " " + contact.LastName;
+      let phone = contactCard.querySelector('.card-phone')
+      phone.innerText = contact.PhoneNumber
+      let email = contactCard.querySelector('.card-email')
+      email.innerText = contact.Email
+      row.appendChild(contactCard)
+      if(i % 3 == 0){
+        row = createRow()
+        contactContainer.appendChild(row)
+      }
+    }
+  }, "json")
+})
+
+function createRow(){
+  let row = document.createElement('div')
+  row.classList.add('row')
+  return row;
+}
 
 $('#modal-contact-phone').on('focusout', function() {
   if(validatePhoneNumber($(this).val())){}

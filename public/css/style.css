@@ -3,12 +3,32 @@ body{
   background-color: #3f51b5 !important;
 }
 
+#templates{
+  display: none;
+}
+
 .card-options-icon{
   position: absolute;
   font-size: 1.5rem;
   margin-left: -1.6rem;
   left: 100%;
   top: 0;
+}
+
+.btn-circle-xl{
+  position: relative;
+  width: 90px;
+  height: 90px;
+  border-radius: 45px;
+  text-align: center;
+  font-size: 40px;
+}
+
+.btn-circle-icon{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .card-text a{
