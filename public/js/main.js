@@ -46,6 +46,7 @@ $(function() {
     let row = createRow();
     contactContainer.appendChild(row)
     for(let i = 1; i <= data.results.length; i++){
+      // TODO add support for tel and mailto attributes
       let contact = data.results[i-1]; //subtract 1 since we are starting at 1 for modulo (at bottom)
       let contactCard = document.querySelector('#contactTemplate').cloneNode(true);
       let name = contactCard.querySelector('.card-title')
