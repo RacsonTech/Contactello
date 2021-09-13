@@ -13,6 +13,12 @@ body{
   margin-left: -1.6rem;
   left: 100%;
   top: 0;
+  color: #ff5f54;
+  cursor: pointer;
+}
+
+.card-options-icon:hover{
+  color: red;
 }
 
 .btn-circle-xl{

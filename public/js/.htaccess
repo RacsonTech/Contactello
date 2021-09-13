@@ -1,0 +1,15 @@
+# Turn Rewrite Engine On
+RewriteEngine on
+
+# Rewrite for Practice.php
+# RewriteRule ^practice Practice.php [NC,L]
+# NC: makes the rule non case sensitive
+# L: makes this the last rule that this specific condition will match
+
+# If the client requests PHP
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.php
+RewriteRule ^/?(.*)\.php$ /$1 [L,R=301]
+
+# Check if the request is for a PHP file:
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^/?(.*)$ /$1.php [L]

@@ -53,7 +53,7 @@
       </div>
     </div>
 
-    <div class="container-fluid text-center">
+    <div class="container-fluid">
       <div id="contactContainer" class="container text-center">
       </div>
     </div>
@@ -98,14 +98,34 @@
       </div>
     </div>
 
+    <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="confirmationModalLabel">Delete Contact</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <p>Are you sure you want to permanantly delete <strong id="confirmationModalName"></strong> from your contacts?</p>
+          </div>
+          <div class="modal-footer">
+            <button class="confirmationDeleteButton btn btn-danger">Delete Permanantly</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <div id="templates">
       <div id="contactTemplate" class="col-sm-4 mb-3">
         <div class="card" data-aos="fade">
           <div class="card-body">
+            <a class="card-options-icon contact-delete" data-bs-toggle="modal" data-bs-target="#confirmationModal">
+              <i class="far fa-trash-alt" aria-hidden="true"></i>
+            </a>
             <h5 class="card-title"></h5>
             <p class="card-text mb-0"><strong>Phone Number:</strong> <a class="card-phone" href="tel:123-456-7890"></a></p>
             <p class="card-text"><strong>E-Mail:</strong> <a class="card-email" href="mailto:user@example.com"></a></p>
-            <button type="button" class="btn btn-primary" data-type="Edit" data-bs-toggle="modal" data-bs-target="#contactModal">Edit Contact</button>
+            <button type="button" class="btn btn-primary contact-edit" data-type="Edit" data-bs-toggle="modal" data-bs-target="#contactModal">Edit Contact</button>
           </div>
         </div>
       </div>

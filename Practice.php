@@ -150,7 +150,7 @@ include('headers.php');
       e.preventDefault();
       console.log(formToJsonString($(this)))
       $.ajax({
-        url: 'LAMPAPI/Login.php',
+        url: 'LAMPAPI/Login',
         type : "POST",
         dataType : 'json',
         contentType: 'application/json;charset=UTF-8',
