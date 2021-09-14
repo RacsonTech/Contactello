@@ -13,3 +13,11 @@ RewriteRule ^/?(.*)\.php$ /$1 [L,R=301]
 # Check if the request is for a PHP file:
 RewriteCond %{REQUEST_FILENAME}\.php -f
 RewriteRule ^/?(.*)$ /$1.php [L]
+
+# If the client requests HTML
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /([^\ ]+)\.html
+RewriteRule ^/?(.*)\.html$ /$1 [L,R=301]
+
+# Check if the request is for an HTML file:
+RewriteCond %{REQUEST_FILENAME}\.html -f
+RewriteRule ^/?(.*)$ /$1.html [L]

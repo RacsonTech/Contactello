@@ -135,7 +135,7 @@
         data : formToJsonString($(this)),
         success : function(data) {
           console.log("success!")
-          document.cookie = `UserID=${data.UserID};86400000`
+          setCookie("UserID", data.UserID, 7)
           console.log(data)
           location.href="/"
         }
