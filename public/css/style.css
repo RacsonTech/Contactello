@@ -1,6 +1,8 @@
 body{
   padding-top: 75px; /* padding for navbar */
-  background-color: #3f51b5 !important;
+  background: linear-gradient(350deg, #3f7ab5, #3f51b5);
+  min-height: 100vh;
+  /* background-color: #3f51b5 !important; */
 }
 
 #templates{

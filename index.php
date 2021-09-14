@@ -1,3 +1,10 @@
+<?php
+  # Redirect to login if UserID cookie not set.
+  if(!isset($_COOKIE["UserID"])) {
+    header("Location: https://contactello.com/login");
+    exit;
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -45,7 +52,7 @@
         <div class="row">
           <div class="col-sm-4 mx-auto">
             <div class="input-group mb-3">
-              <input type="text" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="search-button">
+              <input type="text" id="search-input" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="search-button">
               <button class="btn btn-dark" type="button" id="search-button">Submit</button>
             </div>
           </div>

@@ -1,6 +1,8 @@
 # Turn Rewrite Engine On
 RewriteEngine on
 
+DirectoryIndex index.php
+
 # Rewrite for Practice.php
 # RewriteRule ^practice Practice.php [NC,L]
 # NC: makes the rule non case sensitive

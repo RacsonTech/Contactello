@@ -10,6 +10,19 @@ function selectContact(id){
   selectedContact.contact = contact;
 }
 
+$('#search-button').on('click', function(event){
+  let loc = new URL(window.location.href)
+  let val = document.getElementById('search-input').value;
+  loc.searchParams.set("search", encodeURIComponent(val))
+  window.location.search = loc.searchParams.toString();
+})
+
+$('#search-input').keydown(function(event) {
+  if (event.which === 13) {
+      document.getElementById('search-button').click()
+  }
+});
+
 contactModal.on('show.bs.modal', function (event) {
   let button = $(event.relatedTarget).first()
   selectedContact.actionType = button.data('type')
@@ -79,7 +92,12 @@ $('.confirmationDeleteButton').on('click', function(){
 })
 
 $(function() {
-  $.get(`LAMPAPI/SearchContact?UserID=${getCookie("UserID")}`, function(data) {
+  let loc = new URL(window.location.href)
+  let req = `LAMPAPI/SearchContact?UserID=${getCookie("UserID")}`;
+  let search = loc.searchParams.get('search')
+  if(search)
+    req += '&Search=' + search
+  $.get(req, function(data) {
     let contactContainer = document.querySelector('#contactContainer');
     let row = createRow();
     contactContainer.appendChild(row)
