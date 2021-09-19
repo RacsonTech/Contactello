@@ -1,109 +1,195 @@
 <!DOCTYPE html>
 <html>
-  <!---Title of the WebPage--->
-  <head>
+<!---Title of the WebPage--->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!---BootStrap?--->
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/style.css">
     <title>
-      SmallProjectCOP4331
+        SmallProjectCOP4331
     </title>
-  </head>
+</head>
+<style>
+    hr {
+        position: relative;
+        margin-top: 0px;
+        border: none;
+        height: 2px;
+        background: black;
+        margin-bottom: 20px;
+    }
+</style>
 
-  
-  <!---Here starts the Body Part--->
-  <body style = "background-color: rgba(0, 153, 255, 0.589);">
+<body style="padding-top:0px;">
 
-    <span>
-      <img src="/images/Logo 2 - (Background removed) Looka-com.png" class="img-fluid" >
-    </span>
+    <a id="top"></a>
+    <!-- the entire document -->
 
-    <div class="container">
-        <div class="center" style="text-align: center;">
-            <h1 style="font-style:inherit"> Register Here </h1>
-        </div>
-    </div> <!--container end-->
 
-  <!--form for registration-->
-  <div class="container">
-  <form action="LAMPAPI/Register.php" id="formId" method="POST" class="border position-absolute start-50 top-50 translate-middle"> 
+    <div class="row bg-dark">
 
-    <div class="row g-3">
-
-      <div class="col-md-6">
-        <label for="FirstName" class="form-label">First Name</label>
-        <input type="text" class="form-control" placeholder="Enter First name" name="FirstName" required>
-      </div>
-
-      <div class="col-md-6">
-        <label for="LastName" class="form-label">Last Name</label>
-        <input type="text" class="form-control" placeholder="Enter Last name" name="LastName" required>
-      </div>
-    
-    </div> <!--end for row g-3-->
-
-    <div class="row g-3">
-      
-        <div class="col-md-12">
-            <label for="Login" class="form-label">Username</label>
-            <input type="text" class="form-control" placeholder="Enter Username" name="Login" required>
+        <div class="col-md-6">
+            <img src="/public/images/Logo 2 - (Background removed) Looka-com.png" class="img-fluid align-baseline">
         </div>
 
-    </div> <!--end for row g-3-->
+        <div class="col-md-6 text-light align-self-center p-5" style="border:3px white;">
+            <figure class="text-end">
+                <p class="lead px-1"> Already have an account?  
+                  <a href="login" class="btn btn-light"> Sign in </a>
+                </p>
+                
+            </figure>
+        </div>
 
-    <div class="row g-3" >
-        <div class="col-md-12">
-            <label for="Password" class="form-label">Password</label>
-            <input type="password" class="form-control" placeholder="Enter Password" name="Password" required>
-            <input type="checkbox" onclick="myFunction()">Show Password
-        </div>
-    
-    <div class="position-relative">
-        <div class="col-12">
-            <button type="submit" class="btn btn-primary position-absolute top-50 start-50 translate-middle">
-                Register 
-            </button>
-        </div>
     </div>
-    </div>
-    
-    </form>
-    </div>
-    </body>
 
-    <script href= "public/js/bootstrap.bundle.min.js"></script>
+
+    <!--white textbox portion-->
+
+    <div class="container position-relative start 50 top-50 mt-5 mb-5">
+        <div class="row justify-content-center">
+            <div class="bg-light text-dark col-md-8 col-10 p-sm-5 "style="max-width:600px;border-radius:3px;filter:drop-shadow(0 1px 2px black);">
+
+                <div class="row pt-2">
+                    <h1 class="display-4"> Register Here </h1>
+
+                    <div class="pb-3">
+                        <p> Manage your contacts Efficiently </p>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="text-muted col">Let's get you all set up so you can verify your personal account and begin
+                        setting up your profile </p>
+                </div>
+                <hr>
+
+                <!--form for registration-->
+                <form action="LAMPAPI/Register.php" id="formId" method="POST" class="row">
+
+                    <!--First Name + Last Name-->
+
+                    <div class="col-md-6 pt-1">
+                        <label for="FirstName" class="form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="Enter First name" name="FirstName"
+                            required>
+                    </div>
+
+                    <div class="col-md-6 pt-1">
+                        <label for="LastName" class="form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Enter Last name" name="LastName" required>
+                    </div>
+
+
+                    <!--Username on another -->
+
+                    <div class="col-md-12 pt-2">
+                        <label for="Login" class="form-label">Username</label>
+                        <input type="text" class="form-control" placeholder="Enter Username" name="Login" required>
+                    </div>
+
+
+                    <!--password on another-->
+
+                    <div class="col-md-12 pt-2">
+                        <label for="Password" class="form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Enter Password" name="Password"
+                            id="myInput" required>
+                    </div>
+
+                    <div class="col-md-12 pt-2 ">
+                        <input type="checkbox" onclick="myFunction()">Show Password
+                    </div>
+
+                    <div class="col-md-12 pt-2">
+
+                        <div class="col-md-12 pt-2">
+                            <input type="checkbox" id="chkbox_terms" required>
+                            <a
+                                href="https://www.termsandconditionsgenerator.com/live.php?token=SMqfuWZIrML58zDZqvuMAeqNgSWtWWQv">I
+                                agree to all the terms and conditions</a>
+                        </div>
+                    </div>
+
+                    <div class="col pb-1 pt-4">
+                        <button type="submit" class="btn btn-primary">
+                            Create Account
+                        </button>
+                    </div>
+
+                </form>
+
+                <div class="row justify-content-center pt-4 pb-3">
+                    <div class="col-md-8 text-center">
+                        <a class="heading link-dark"
+                            href="https://www.freeprivacypolicy.com/live/5dba5a29-5435-4d38-9cd8-f6e433252f17">
+                            Contactello Privacy Statement </a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!-- for white background-->
+    </div>
+    <!--for main container-->
+
     <script src="public/js/jquery-3.6.0.min.js"></script>
     <script src="public/js/jquery-validation-min.js"></script>
+    <script src="public/js/bootstrap.bundle.min.js"></script>
     <script src="public/js/main.js"></script>
-    <script src="public/css/style.css"></script>
 
     <script>
-      $('#formId').on('submit', function(e){
-        e.preventDefault();
-        console.log(formToJsonString($(this)))
-        $.ajax({
-          url: 'LAMPAPI/Register',
-          type : "POST",
-          dataType : 'json',
-          contentType: 'application/json;charset=UTF-8',
-          data : formToJsonString($(this)),
-          success : function(result) {
-            console.log("success!")
-            console.log(result)
-            location.href="/login.html"
-          }
+        $('#formId').on('submit', function (e) {
+            e.preventDefault();
+            console.log(formToJsonString($(this)));
+
+            $.ajax({
+                url: 'LAMPAPI/Register',
+                type: "POST",
+                dataType: 'json',
+                contentType: 'application/json;charset=UTF-8',
+                data: formToJsonString($(this)),
+                success: function (result) {
+                    if (result.error == "") {
+                        console.log("success!")
+                        location.href = "/login.html"
+                    } else {
+                        console.log(result)
+                        alert("Username already exists")
+                    }
+                }
+            })
         })
-      })
     </script>
 
     <script>
-      function myFunction() {
-        var x = document.getElementById("Password");
-        if (x.type === "password") {
-          x.type = "text";
-        } else {
-          x.type = "password";
+        function myFunction() {
+            var x = document.getElementById("myInput");
+            if (x.type === "password") {
+                x.type = "text";
+            } else {
+                x.type = "password";
+            }
         }
-      }
-      </script>
-  </body>
+    </script>
+    <script>
+        window.scroll({
+            top: 0,
+            left: 0,
+            behavior: 'smooth'
+        });
+    </script>/
+
+    <a style="position:absolute;bottom:5px;right:5px;margin:0;padding:5px 3px;" href="#top" class="btn btn-info">GO
+        BACK</a>
+
+
+</body>
+
 </html>
