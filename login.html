@@ -1,128 +1,101 @@
-
 <!DOCTYPE html>
 <html>
+  <!---Title of the WebPage--->
   <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!---BootStrap?--->
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
-    <title> SmallProjectCOP4331 </title> 
-    
+    <link rel="stylesheet" href="public/css/style.css">
+    <title>
+      SmallProjectCOP4331
+    </title>
   </head>
 
-  <!---responsive font size (typography), create a container with colums and row, position(top and start)media rules, @media, viewport height, position absolute--->
+<body style="padding-top:0px;">
 
-  <!---all the functions--->
-  <style>
-    h1 {text-align: center;}
-    h2 {text-align: center;}
-    p {text-align: center;} 
-
-    .img-container {
-      text-align: center;
-      display: block;
-
-    }
-
-    .borderexample {
-     text-align: center;
-     border-style:solid;
-     border-color: black;
-     height: fit-content;
-     width: fit-content;
-    }
-
-    .center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    }
-
-    .button {
-    background-color: #4CAF50; /* Green */
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.4s;
-    cursor: pointer;
-    }
-
-    .button2 {
-    background-color: white; 
-    color: black; 
-    border: 2px solid #008CBA;
-    }
-
-    .button2:hover {
-    background-color: #008CBA;
-    color: white;
-    }
-
-  </style>
-
-  <!---Here starts the Body Part--->
-  <body style = "background-color: #3f51b5;">
-
-    <div class="img-container"> 
-    <!---Logo--->
-      <span class="mx-auto d-block"> 
-        <img class="img-fluid" src="/Users/ridwan/Desktop/Contactello-main/images/Logo 2 - (Background removed) Looka-com.png" >
-      </span>
+  <a id="top"></a>
+   <!-- the entire document -->
+    <div class="row bg-dark">
+      <div class="col col-sm-12">
+        <img src="/public/images/Logo 2 - (Background removed) Looka-com.png" class=" img-fluid mx-auto d-block " >
+      </div>
     </div>
-      
-    <h1 style="font-style: oblique;"> Making Contact Mangement Easier </h1>     
-    <p class="mb-3" style="font-size: x-large; font-style:unset;"> Personal Contact Manager </p>
-      
-    <div class="container border border-light">
 
-    <!--here is the session first name PHP-->
-      
-      <form action="LAMPAPI/Login.php" class="was-validated" id="formId" method="POST"> <!---not sure about this-->
-        <div class="mb-4">
-        <div class="form-group">
-          <label for="email"> User ID:</label>
-          <input type="text" class="form-control" id="email" placeholder="Enter email" name="Login">
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback"> Please enter valid User ID</div>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <div class="form-group">
-          <label for="pwd">Password:</label>
-          <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="Password">
-          <div class="valid-feedback">Valid.</div>
-          <div class="invalid-feedback"> Please enter valid Password </div>
-        </div>
-      </div>
-
-      <div class="mb-3">
-        <button type="submit" id="submitButton" class="btn btn-info" style="color: black;" >
-          Log In
-        </button>
-      </form>
-      </div>
+    <div class="mt-5 mb-2 text-light text-center ">
+      <h class="lead fs-2 fw-bold " style="font-size: x-large; font-style:unset;"> Sign In To Continue </h>
+    </div>
     
+    <div class="container position-relative start 50 top-50">
+      <div class="row justify-content-center">
+        <div class="bg-light text-dark col-md-8 col-10 p-sm-4 justify-content-center" style="max-width:600px;border-radius:3px;filter:drop-shadow(0 1px 2px black);">
 
-    <!---Redirect to Register Page--->
-    <a href="register"> Don't have an account? Click here to create one</a>
+          <form action="LAMPAPI/Login.php" class="needs-validation" id="formId" method="POST" novalidate> <!---not sure about this-->
+            
+            <div class="col-md-12 p-1">
+              <div class="form-group">
+                <label for="email validationCustom01" class="form-label"> User ID:</label>
+                <input type="text" class="form-control" id="email validationCustom01" placeholder="Enter UserID" name="Login" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback"> Please enter valid User ID</div>
+              </div>
+            </div>
+    
+            <div class="col-md-12 p-1">
+              <div class="form-group">
+                <label for="pwd validationCustom04">Password:</label>
+                <input type="password" class="form-control" id="pwd validationCustom04" placeholder="Enter password" minlength="6" maxlength="50" name="Password" required>
+                <div class="valid-feedback">Valid.</div>
+                <div class="invalid-feedback"> Please enter valid Password </div>
+              </div>
+            </div>
+          
+            <div class="col-md-12 p-1 ">
+              <input type="checkbox" onclick="myFunction()">Show Password
+            </div>
+      
+            <div class="col pb-1 p-2">
+              <button type="submit" id="submitButton" class="btn btn-primary">
+                Log In
+              </button>
+            </div>
 
-    <!---Redirect Contact Us Page--->
-    <p class="text-center; font-variant: small-caps;" >Have Questions?</p>
+          </form>
 
-    <!---Email address--->
-    <p class="text-center">
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=contactello01@gmail.com" target="_blank">Contact Us</a>
-    </p>
-    <!---Email End--->
+        </div>
+
+      </div> 
+
+      
+
+        <div class="row text-center justify-content-center m-5">
+          <div class="bg-light text-dark col-md-3 col-sm-6 rounded p-2 " style=" filter:drop-shadow(0 1px 2px black);">
+            <p> Don't have an account? Have Questions? </p>
+            
+            <div class="dropdown">
+              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Select Option
+              </button>
+            
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="register">Sign Up</a>
+                <a class="dropdown-item" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=contactello01@gmail.com" target="_blank">Contact Us</a>
+              </div>
+
+            </div>
+  
+          </div>
+        </div>
+
     </div>
 
   <script href= "public/js/bootstrap.bundle.min.js"></script>
   <script src="public/js/jquery-3.6.0.min.js"></script>
   <script src="public/js/jquery-validation-min.js"></script>
   <script src="public/js/main.js"></script>
+
   <script>
     $('#formId').on('submit', function(e){
       e.preventDefault();
@@ -134,14 +107,54 @@
         contentType: 'application/json;charset=UTF-8',
         data : formToJsonString($(this)),
         success : function(data) {
-          console.log("success!")
-          setCookie("UserID", data.UserID, 7)
-          console.log(data)
-          location.href="/"
+          if (data.UserID < 1) {
+            alert("Invalid Credentials, Please try again!")
+          }
+          else{
+            console.log("success!")
+            document.cookie = `UserID=${data.UserID};86400000`
+            console.log(data)
+            location.href="/"}
         }
       })
     })
   </script>
+
+  <script>
+        (() => {
+      'use strict';
+
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      const forms = document.querySelectorAll('.needs-validation');
+
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms).forEach((form) => {
+        form.addEventListener('submit', (event) => {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
+
+  <script>
+        function myFunction() {
+      var x = document.getElementById("pwd validationCustom04");
+      if (x.type === "password") {
+        x.type = "text";
+      } else {
+        x.type = "password";
+      }
+    }
+  </script>
+  
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   </body>
   </html>
