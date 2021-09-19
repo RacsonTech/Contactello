@@ -1,8 +1,12 @@
-var contactModal = $('#contactModal')
-var contactForm = $('#contact-modal-form')
-var confirmationModal = $('#confirmationModal')
+let contactModal = $('#contactModal')
+let contactForm = $('#contact-modal-form')
+let confirmationModal = $('#confirmationModal')
 const loadedContacts = new Map();
-var selectedContact = {};
+let selectedContact = {};
+
+let isLazyLoading = false;
+let noResults = false;
+
 
 function selectContact(id){
   let contact = loadedContacts.get(id.toString());
@@ -91,13 +95,19 @@ $('.confirmationDeleteButton').on('click', function(){
   })
 })
 
-$(function() {
+function loadContacts(offset = 0){
   let loc = new URL(window.location.href)
   let req = `LAMPAPI/SearchContact?UserID=${getCookie("UserID")}`;
   let search = loc.searchParams.get('search')
   if(search)
     req += '&Search=' + search
+  req += `&offset=${offset}`
   $.get(req, function(data) {
+    if(data.results == undefined){
+      noResults = true;
+      document.getElementById("loader").style.display = "none"
+      return;
+    }
     let contactContainer = document.querySelector('#contactContainer');
     let row = createRow();
     contactContainer.appendChild(row)
@@ -129,7 +139,7 @@ $(function() {
       }
     }
   }, "json")
-})
+}
 
 function createRow(){
   let row = document.createElement('div')
@@ -178,3 +188,26 @@ $(function() {
     }
   });
 });
+
+$(function() {
+  let options = {
+    root: null,
+    rootMargin: "0px",
+    threshold: 0.25
+  };
+
+function handleIntersect(entries, observer) {
+  entries.forEach((entry) => {
+    if (entry.isIntersecting && !isLazyLoading && !noResults) {
+      isLazyLoading = true;
+      setTimeout(() => {
+        loadContacts(loadedContacts.size);
+        isLazyLoading = false;
+      }, 500)
+    }
+  });
+}
+
+let observer = new IntersectionObserver(handleIntersect, options);
+  observer.observe(document.getElementById("loader"));
+})

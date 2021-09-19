@@ -35,11 +35,7 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Developer</a>
               <ul class="dropdown-menu dropdown-menu-end">
-                <li><a class="dropdown-item" href="#">User Profile</a></li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="#">Logout</a></li>
+                <li><a class="dropdown-item" href="logout">Logout</a></li>
               </ul>
             </li>
           </ul>
@@ -63,6 +59,7 @@
     <div class="container-fluid">
       <div id="contactContainer" class="container text-center">
       </div>
+      <div id="loader" class="display-5 text-white text-center"><img src="public/images/circles-preloader.gif" style="width:25px;height:25px;"/></div>
     </div>
 
     <div class="position-fixed bottom-0 end-0">
