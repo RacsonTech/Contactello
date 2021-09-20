@@ -114,16 +114,18 @@
     </div>
 
     <div id="templates">
-      <div id="contactTemplate" class="col-sm-4 mb-3">
-        <div class="card">
-          <div class="card-body">
+      <div id="contactTemplate" class="col-sm-4 mb-3 d-flex align-items-stretch">
+        <div class="card w-100">
+          <div class="card-body d-flex flex-column">
             <a class="card-options-icon contact-delete" data-bs-toggle="modal" data-bs-target="#confirmationModal">
               <i class="far fa-trash-alt" aria-hidden="true"></i>
             </a>
             <h5 class="card-title"></h5>
-            <p class="card-text mb-0"><strong>Phone Number:</strong> <a class="card-phone" href="tel:123-456-7890"></a></p>
-            <p class="card-text"><strong>E-Mail:</strong> <a class="card-email" href="mailto:user@example.com"></a></p>
-            <button type="button" class="btn btn-primary contact-edit" data-type="Edit" data-bs-toggle="modal" data-bs-target="#contactModal">Edit Contact</button>
+            <div class="mb-3">
+              <p class="card-text mb-0"><strong>Phone Number:</strong> <a class="card-phone" href="tel:123-456-7890"></a></p>
+              <p class="card-text mb-0"><strong>E-Mail:</strong> <a class="card-email" href="mailto:user@example.com"></a></p>
+            </div>
+            <button type="button" class="btn btn-primary contact-edit mt-auto" data-type="Edit" data-bs-toggle="modal" data-bs-target="#contactModal">Edit Contact</button>
           </div>
         </div>
       </div>

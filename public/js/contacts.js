@@ -125,10 +125,14 @@ function loadContacts(limit, offset = 0){
       let name = contactCard.querySelector('.card-title')
       name.innerText = contact.FirstName + " " + contact.LastName
       let phone = contactCard.querySelector('.card-phone')
+      if(contact.PhoneNumber.length == 0)
+        closestParent(phone, "card-text").style.display = 'none'
       phone.innerText = contact.PhoneNumber
       var cleanPhone = contact.PhoneNumber.replace(/[^0-9\+]/g, '')
       phone.href = "tel:" + cleanPhone;
       let email = contactCard.querySelector('.card-email')
+      if(contact.Email.length == 0)
+        closestParent(email, "card-text").style.display = 'none'
       email.innerText = contact.Email
       email.href = "mailto:" + contact.Email
 
