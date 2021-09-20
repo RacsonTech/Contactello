@@ -26,14 +26,21 @@
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="navbar-collapse collapse w-100" id="collapsingMainNav">
-          <!-- <ul class="navbar-nav w-100 justify-content-center">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Home</a>
+          <ul class="navbar-nav w-100 justify-content-center">
+            <li class="nav-item align-items-center">
+              <div class="input-group">
+                <input class="form-control py-2 rounded-pill me-1 pe-5" type="search" placeholder="Search..." id="search-input">
+                <span class="input-group-append">
+                  <button class="btn rounded-pill border-0" style="margin-left:-3rem;margin-top:3px" type="button" id="search-button">
+                    <i class="fa fa-search"></i>
+                  </button>
+                </span>
+              </div>
             </li>
-          </ul> -->
+          </ul>
           <ul class="nav navbar-nav ms-auto w-100 justify-content-end">
             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">Developer</a>
+              <a class="nav-link dropdown-toggle" id="nav-user" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"></a>
               <ul class="dropdown-menu dropdown-menu-end">
                 <li><a class="dropdown-item" href="logout">Logout</a></li>
               </ul>
@@ -42,19 +49,6 @@
         </div>
       </div>
     </nav>
-
-    <div class="container-fluid">
-      <div class="container text-center">
-        <div class="row">
-          <div class="col-sm-4 mx-auto">
-            <div class="input-group mb-3">
-              <input type="text" id="search-input" class="form-control" placeholder="Search..." aria-label="Search..." aria-describedby="search-button">
-              <button class="btn btn-dark" type="button" id="search-button">Submit</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <div class="container-fluid">
       <div id="contactContainer" class="container text-center">
@@ -78,19 +72,19 @@
           <div class="modal-body">
             <form id="contact-modal-form" novalidate>
               <div class="mb-3">
-                <label for="modal-contact-firstname" class="col-form-label">First Name:</label>
+                <label for="modal-contact-firstname" class="col-form-label" style="font-weight:500">First Name:</label>
                 <input type="text" name="FirstName" class="form-control" id="modal-contact-firstname">
               </div>
               <div class="mb-3">
-                <label for="modal-contact-lastname" class="col-form-label">Last Name:</label>
+                <label for="modal-contact-lastname" class="col-form-label" style="font-weight:500">Last Name:</label>
                 <input type="text" name="LastName" class="form-control" id="modal-contact-lastname">
               </div>
               <div class="mb-3">
-                <label for="modal-contact-phone" class="col-form-label">Phone:</label>
+                <label for="modal-contact-phone" class="col-form-label" style="font-weight:500">Phone:</label>
                 <input type="tel" name="PhoneNumber" class="form-control" id="modal-contact-phone"></input>
               </div>
               <div class="mb-3">
-                <label for="modal-contact-email" class="col-form-label">E-Mail:</label>
+                <label for="modal-contact-email" class="col-form-label" style="font-weight:500">E-Mail:</label>
                 <input type="email" name="Email" class="form-control" id="modal-contact-email"></input>
               </div>
             </form>
@@ -121,7 +115,7 @@
 
     <div id="templates">
       <div id="contactTemplate" class="col-sm-4 mb-3">
-        <div class="card" data-aos="fade">
+        <div class="card">
           <div class="card-body">
             <a class="card-options-icon contact-delete" data-bs-toggle="modal" data-bs-target="#confirmationModal">
               <i class="far fa-trash-alt" aria-hidden="true"></i>
@@ -138,17 +132,8 @@
     <script src="public/js/jquery-3.6.0.min.js"></script>
     <script src="public/js/jquery-validation-min.js"></script>
     <script src="public/js/bootstrap.bundle.min.js"></script>
-    <script src="public/js/aos.min.js"></script>
     <script src="public/js/libphonenumber-js.min.js"></script>
     <script src="public/js/main.js"></script>
     <script src="public/js/contacts.js"></script>
-
-    <script>
-      AOS.init({
-        duration: 400,
-        once: true,
-        mirror: false,
-      });
-    </script>
   </body>
 </html>

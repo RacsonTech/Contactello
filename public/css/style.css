@@ -1,12 +1,17 @@
 body{
   padding-top: 75px; /* padding for navbar */
-  background: linear-gradient(350deg, #3f7ab5, #3f51b5);
+  /* background: linear-gradient(350deg, #3f7ab5, #3f51b5); */
   min-height: 100vh;
-  /* background-color: #3f51b5 !important; */
+  background-color: #3f51b5;
 }
 
 #templates{
   display: none;
+}
+@media (max-width: 767.98px) {
+  .navbar-collapse.collapse{
+    padding-top: 1.5rem;
+  }
 }
 
 .card-options-icon{

@@ -1,3 +1,4 @@
+let userInfo = {}
 let contactModal = $('#contactModal')
 let contactForm = $('#contact-modal-form')
 let confirmationModal = $('#confirmationModal')
@@ -5,8 +6,14 @@ const loadedContacts = new Map();
 let selectedContact = {};
 
 let isLazyLoading = false;
-let noResults = false;
+let noMoreResults = false;
 
+$(function(){
+  userInfo.UserID = getCookie("UserID")
+  userInfo.FirstName = getCookie("FirstName")
+  userInfo.LastName = getCookie("LastName")
+  document.getElementById("nav-user").text = userInfo.FirstName;
+})
 
 function selectContact(id){
   let contact = loadedContacts.get(id.toString());
@@ -53,9 +60,9 @@ contactForm.on('submit', function(event) {
   let url = "LAMPAPI/"
   let type = "POST"
   let data = formToJson($(this))
-  data.UserID = getCookie("UserID")
-  data.ContactID = selectedContact.contact.ContactID;
+  data.UserID = userInfo.UserID
   if(selectedContact.actionType == "Edit"){
+    data.ContactID = selectedContact.contact.ContactID;
     url += "Update"
     type = "PUT"
   }
@@ -71,8 +78,7 @@ contactForm.on('submit', function(event) {
     contentType: 'application/json;charset=UTF-8',
     data : data,
     success : function(result) {
-      console.log(result)
-      // location.reload()
+       location.reload()
     }
   })
 })
@@ -86,7 +92,7 @@ confirmationModal.on('show.bs.modal', function (event) {
 
 $('.confirmationDeleteButton').on('click', function(){
   $.ajax({
-    url: `LAMPAPI/DeleteContact?UserID=${getCookie("UserID")}&ContactID=${selectedContact.contact.ContactID}`,
+    url: `LAMPAPI/DeleteContact?UserID=${userInfo.UserID}&ContactID=${selectedContact.contact.ContactID}`,
     type : "DELETE",
     dataType : 'json',
     success : function(result) {
@@ -95,18 +101,18 @@ $('.confirmationDeleteButton').on('click', function(){
   })
 })
 
-function loadContacts(offset = 0){
+function loadContacts(limit, offset = 0){
   let loc = new URL(window.location.href)
-  let req = `LAMPAPI/SearchContact?UserID=${getCookie("UserID")}`;
+  let req = `LAMPAPI/SearchContact?UserID=${userInfo.UserID}`;
   let search = loc.searchParams.get('search')
   if(search)
     req += '&Search=' + search
-  req += `&offset=${offset}`
+  req += `&limit=${limit}&offset=${offset}`
   $.get(req, function(data) {
-    if(data.results == undefined){
-      noResults = true;
+    if(data.error.length > 0 || data.results?.length < limit){
+      noMoreResults = true;
       document.getElementById("loader").style.display = "none"
-      return;
+      if(data.error.length > 0) return
     }
     let contactContainer = document.querySelector('#contactContainer');
     let row = createRow();
@@ -174,14 +180,17 @@ jQuery.validator.addMethod('validPhone', function(val, elem) {
 $(function() {
   contactForm.validate({
     rules: {
-      name : {
+      FirstName : {
         required: true
       },
-      phone: {
+      LastName : {
+        required: false
+      },
+      PhoneNumber: {
         required: false,
         validPhone: true,
       },
-      email: {
+      Email: {
         required: false,
         email: true
       }
@@ -198,12 +207,12 @@ $(function() {
 
 function handleIntersect(entries, observer) {
   entries.forEach((entry) => {
-    if (entry.isIntersecting && !isLazyLoading && !noResults) {
+    if (entry.isIntersecting && !isLazyLoading && !noMoreResults) {
       isLazyLoading = true;
       setTimeout(() => {
-        loadContacts(loadedContacts.size);
+        loadContacts(45, loadedContacts.size);
         isLazyLoading = false;
-      }, 500)
+      }, 300)
     }
   });
 }
