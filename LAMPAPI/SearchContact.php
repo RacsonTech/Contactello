@@ -6,7 +6,7 @@
 
 	$searchResults = "";
 	$searchCount = 0;
-	$limit=30; // set default return limit as 30 records
+	$limit=1; // set default return limit as 30 records
 	$offset = 0; // set default offset as 0
 	$Search = ""; // set default search content as null
 	$UserID = ""; // set default UserID as null
@@ -34,7 +34,7 @@
 			$UserID = $_GET['UserID']; 
 		}
 
-		$stmt = $conn->prepare("select * from Contacts where (FirstName like ? or LastName like ? or PhoneNumber like ? or Email like ?) and UserID=? LIMIT ? OFFSET ?"); // search "?" in database
+		$stmt = $conn->prepare("select * from Contacts where (FirstName like ? or LastName like ? or PhoneNumber like ? or Email like ?) and UserID=? ORDER BY FirstName ASC LIMIT ? OFFSET ? "); // search "?" in database
 		$key = "%" . $Search . "%";
 		$stmt->bind_param("sssssii", $key,$key,$key,$key,$UserID,$limit,$offset);
 		$stmt->execute();
@@ -77,7 +77,7 @@
 
 	function returnWithError( $err )
 	{
-		$retValue = '{"id":0,"firstName":"","lastName":"","error":"' . $err . '"}';
+		$retValue = '{"FirstName":"","LastName":"","PhoneNumber":"","Email":"","ContactID":"","error":"' . $err . '"}'; 
 		sendResultInfoAsJson( $retValue );
 	}
 
