@@ -18,7 +18,7 @@
 <!-- PROJECT LOGO -->
 <p align="center">
   <a href="https://github.com/github_username/repo_name">
-    <img src="logo/logo2_looka_com.PNG" alt="Logo" width="409" height="138">
+    <img src="Logo/logo2_looka_com.PNG" alt="Logo" width="409" height="138">
   </a>
   <h3 align="center">www.contactello.com</h3>
   <p align="center">
