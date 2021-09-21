@@ -10,7 +10,7 @@ Database Tables:
 	| UserID           | int         | NO   | PRI | NULL              | auto_increment    |
 	| FirstName        | varchar(50) | NO   |     |                   |                   |
 	| LastName         | varchar(50) | NO   |     |                   |                   |
-	| Login            | varchar(50) | NO   |     |                   |                   |
+	| Login            | varchar(50) | NO   | UNI |                   |                   |
 	| Password         | varchar(64) | NO   |     |                   |                   |
 	| DateCreated      | datetime    | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
 	| DateLastLoggedIn | datetime    | NO   |     | CURRENT_TIMESTAMP | DEFAULT_GENERATED |
