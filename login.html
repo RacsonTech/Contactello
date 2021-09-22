@@ -14,14 +14,24 @@
     </title>
   </head>
 
+  <style>
+  body {
+        background-image: url("/public/images/login_bg_image.jpg");
+        background-position: center center;
+        background-size: cover;
+    }
+  </style>
+
 <body style="padding-top:0px;">
 
   <a id="top"></a>
    <!-- the entire document -->
-    <div class="row bg-dark">
+    <div class="bg-dark">
+      
       <div class="col col-sm-12">
         <img src="/public/images/Logo 2 - (Background removed) Looka-com.png" class=" img-fluid mx-auto d-block " >
-      </div>
+      </div>     
+
     </div>
 
     <div class="mt-5 mb-2 text-light text-center ">
@@ -53,7 +63,7 @@
             </div>
           
             <div class="col-md-12 p-1 ">
-              <input type="checkbox" onclick="myFunction()">Show Password
+              <input type="checkbox" onclick="myFunction()"> Show Password
             </div>
       
             <div class="col pb-1 p-2">
@@ -61,34 +71,37 @@
                 Log In
               </button>
             </div>
-
           </form>
-
         </div>
-
-      </div> 
+       </div> 
 
       
 
-        <div class="row text-center justify-content-center m-5">
-          <div class="bg-light text-dark col-md-3 col-sm-6 rounded p-2 " style=" filter:drop-shadow(0 1px 2px black);">
-            <p> Don't have an account? Have Questions? </p>
-            
-            <div class="dropdown">
-              <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Select Option
-              </button>
-            
-              <div class="dropdown-menu">
-                <a class="dropdown-item" href="register">Sign Up</a>
-                <a class="dropdown-item" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=contactello01@gmail.com" target="_blank">Contact Us</a>
-              </div>
-
-            </div>
-  
+        <div class="row text-center justify-content-center m-5 mb-5" >
+          <div class="bg-light text-dark col-md-3 col-sm-6 p-2" style="border-radius:3px;filter:drop-shadow(0 1px 2px black);">
+            <p> Don't have an account?</p>
+            <a href="register" class="btn btn-primary mb-1"> Register Now! </a>
           </div>
         </div>
 
+    </div>
+
+    <div class="position-fixed bottom-0 end-0">
+      <div class="dropdown">
+        <button type="button" class="btn btn-lg btn-outline-warning rounded-circle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-square-dots" viewBox="0 0 16 16">
+            <path d="M14 1a1 1 0 0 1 1 1v8a1 1 0 0 1-1 1h-2.5a2 2 0 0 0-1.6.8L8 14.333 6.1 11.8a2 2 0 0 0-1.6-.8H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2.5a1 1 0 0 1 .8.4l1.9 2.533a1 1 0 0 0 1.6 0l1.9-2.533a1 1 0 0 1 .8-.4H14a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+            <path d="M5 6a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0zm4 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0z"/>
+          </svg>
+        </button>
+      
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=contactello01@gmail.com" target="_blank"> Contact Us! </a>
+          <a class="dropdown-item" href="https://www.termsandconditionsgenerator.com/live.php?token=SMqfuWZIrML58zDZqvuMAeqNgSWtWWQv"> Terms and conditions </a>
+          <a class="dropdown-item" href="https://www.termsandconditionsgenerator.com/live.php?token=SMqfuWZIrML58zDZqvuMAeqNgSWtWWQv"> Privacy Policy </a>
+        </div>
+    
+      </div>
     </div>
 
   <script href= "public/js/bootstrap.bundle.min.js"></script>
@@ -113,6 +126,8 @@
           else{
             console.log("success!")
             document.cookie = `UserID=${data.UserID};86400000`
+            document.cookie = `FirstName=${data.FirstName};86400000`
+            document.cookie = `LastName=${data.LastName};86400000`
             console.log(data)
             location.href="/"}
         }
@@ -134,8 +149,8 @@
             event.preventDefault();
             event.stopPropagation();
           }
-          form.classList.add('was-validated');
-        }, false);
+          form.classList.add('was-validated');}, 
+          false);
       });
     })();
   </script>
@@ -150,6 +165,8 @@
       }
     }
   </script>
+
+   
   
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
