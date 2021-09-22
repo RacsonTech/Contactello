@@ -34,9 +34,9 @@
 			$UserID = $_GET['UserID']; 
 		}
 
-		$stmt = $conn->prepare("select * from Contacts where (FirstName like ? or LastName like ? or PhoneNumber like ? or Email like ?) and UserID=? ORDER BY FirstName ASC LIMIT ? OFFSET ? "); // search "?" in database
+		$stmt = $conn->prepare("select * from Contacts where ( CONCAT( FirstName,  ' ', LastName) LIKE ? or PhoneNumber like ? or Email like ?) and UserID=? ORDER BY FirstName ASC LIMIT ? OFFSET ? "); // search "?" in database
 		$key = "%" . $Search . "%";
-		$stmt->bind_param("sssssii", $key,$key,$key,$key,$UserID,$limit,$offset);
+		$stmt->bind_param("ssssii", $key,$key,$key,$UserID,$limit,$offset);
 		$stmt->execute();
 
 		$result = $stmt->get_result();
