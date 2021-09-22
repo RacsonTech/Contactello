@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!---BootStrap?--->
     <link rel="stylesheet" href="public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="public/css/fontawesome.min.css">
+    <link rel="stylesheet" href="public/css/aos.min.css">
     <link rel="stylesheet" href="public/css/style.css">
     <title>
         SmallProjectCOP4331
@@ -23,21 +25,26 @@
         background: black;
         margin-bottom: 20px;
     }
+    body {
+        background-image: url("/public/images/login_bg_image.jpg");
+        background-position: center center;
+        background-size: cover;
+    }
 </style>
 
 <body style="padding-top:0px;">
 
-    <a id="top"></a>
+   
     <!-- the entire document -->
 
-
+<div class="container-fluid">
     <div class="row bg-dark">
 
         <div class="col-md-6">
             <img src="/public/images/Logo 2 - (Background removed) Looka-com.png" class="img-fluid align-baseline">
         </div>
 
-        <div class="col-md-6 text-light align-self-center p-5" style="border:3px white;">
+        <div class="col-md-6 text-light align-self-center p-5" >
             <figure class="text-end">
                 <p class="lead px-1"> Already have an account?  
                   <a href="login" class="btn btn-light"> Sign in </a>
@@ -103,7 +110,7 @@
                     </div>
 
                     <div class="col-md-12 pt-2 ">
-                        <input type="checkbox" onclick="myFunction()">Show Password
+                        <input type="checkbox" onclick="myFunction()"> Show Password
                     </div>
 
                     <div class="col-md-12 pt-2">
@@ -136,7 +143,10 @@
             </div>
         </div>
         <!-- for white background-->
+
     </div>
+</div>
+    
     <!--for main container-->
 
     <script src="public/js/jquery-3.6.0.min.js"></script>
@@ -178,16 +188,25 @@
             }
         }
     </script>
-    <script>
-        window.scroll({
-            top: 0,
-            left: 0,
-            behavior: 'smooth'
-        });
-    </script>/
 
-    <a style="position:absolute;bottom:5px;right:5px;margin:0;padding:5px 3px;" href="#top" class="btn btn-info">GO
-        BACK</a>
+    <script>
+        $(document).ready(function(){
+	$(window).scroll(function () {
+			if ($(this).scrollTop() > 50) {
+				$('#back-to-top').fadeIn();
+			} else {
+				$('#back-to-top').fadeOut();
+			}
+		});
+		// scroll body to 0px on click
+		$('#back-to-top').click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			}, 400);
+			return false;
+		});
+});
+    </script>
 
 
 </body>
