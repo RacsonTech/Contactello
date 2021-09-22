@@ -121,7 +121,8 @@ function loadContacts(limit, offset = 0){
       let contact = data.results[i-1]; //subtract 1 since we are starting at 1 for modulo (at bottom)
       loadedContacts.set(contact.ContactID, contact);
 
-      let contactCard = document.querySelector('#contactTemplate').cloneNode(true);
+      let contactCard = document.querySelector('#contactTemplate').cloneNode(true)
+      contactCard.removeAttribute('id')
       let name = contactCard.querySelector('.card-title')
       name.innerText = contact.FirstName + " " + contact.LastName
       let phone = contactCard.querySelector('.card-phone')
