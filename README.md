@@ -24,7 +24,7 @@
   <p align="center">
     A basic online contact manager
     <br><br>
-    Group: 19 - Course: EEE 4331C <br>
+    Group: 19 - Course: COP 4331C <br>
     (Processes for Object-Oriented Software Development) <br>
     Small Project created for Prof. Rick Leinecker <br>
     University of Centra Florida (UCF) <br>
@@ -34,6 +34,8 @@
 </p>
 <br>
 
+SwaggerHub:
+ <h3 https://app.swaggerhub.com/apis/COP-43313/contactAPI/1.0.0 </h3>
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
