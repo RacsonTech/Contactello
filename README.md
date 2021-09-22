@@ -34,7 +34,7 @@
 </p>
 <br>
 
-SwaggerHub APIs testing link:
+SwaggerHub APIs testing link:<br>
 https://app.swaggerhub.com/apis/COP-43313/contactAPI/1.0.0 
 
 <!-- ACKNOWLEDGEMENTS -->
