@@ -6,8 +6,11 @@
 	{
 		returnWithError( $conn->connect_error );
 	}
-    else if (strlen($inData["FirstName"]) > 50 || strlen($inData["LastName"]) > 50 || strlen($inData["FirstName"]) < 1 || strlen($inData["LastName"]) < 1){
-        echo "Invalid input： FirstName, LastName should be within 1~50 characters";
+    	else if (strlen($inData["FirstName"]) > 50 || strlen($inData["FirstName"]) < 1){
+		echo "Invalid input： FirstName should be within 1~50 characters";
+	}
+    else if (strlen($inData["LastName"]) > 50 || strlen($inData["Email"]) > 50  || strlen($inData["PhoneNumber"]) > 50 ){
+        echo "Invalid input： LastName, Email, and PhoneNumber should be within 1~50 characters";
     }
 	else
 	{
