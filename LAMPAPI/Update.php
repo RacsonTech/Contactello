@@ -6,7 +6,7 @@
 	{
 		returnWithError( $conn->connect_error );
 	}
-    else if (strlen($inData["FirstName"]) > 50 || strlen($inData["LastName"]) > 50 || strlen($inData["FirstName"]) < 1 || strlen($inData["LastName"]) < 1){
+    else if (strlen($inData["FirstName"]) > 50 || strlen($inData["LastName"]) > 50 || strlen($inData["FirstName"]) < 1){
         echo "Invalid input： FirstName, LastName should be within 1~50 characters";
     }
 	else
