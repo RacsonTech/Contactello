@@ -57,6 +57,7 @@ contactModal.on('show.bs.modal', function (event) {
 
 contactForm.on('submit', function(event) {
   event.preventDefault();
+  if(!contactForm.valid()) return;
   let url = "LAMPAPI/"
   let type = "POST"
   let data = formToJson($(this))
@@ -186,10 +187,12 @@ $(function() {
   contactForm.validate({
     rules: {
       FirstName : {
-        required: true
+        required: true,
+        maxlength: 50
       },
       LastName : {
-        required: false
+        required: false,
+        maxlength: 50
       },
       PhoneNumber: {
         required: false,
@@ -197,6 +200,7 @@ $(function() {
       },
       Email: {
         required: false,
+        maxlength: 50,
         email: true
       }
     }

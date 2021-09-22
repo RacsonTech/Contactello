@@ -8,6 +8,11 @@ body{
 #templates{
   display: none;
 }
+
+.error{
+  color: red;
+}
+
 @media (max-width: 767.98px) {
   .navbar-collapse.collapse{
     padding-top: 1.5rem;
