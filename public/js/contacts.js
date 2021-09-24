@@ -13,6 +13,8 @@ $(function(){
   userInfo.FirstName = getCookie("FirstName")
   userInfo.LastName = getCookie("LastName")
   document.getElementById("nav-user").text = userInfo.FirstName;
+  let loc = new URL(window.location.href)
+  document.getElementById('search-input').value = decodeURIComponent(loc.searchParams.get("search") ?? "")
 })
 
 function selectContact(id){
